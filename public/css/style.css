@@ -1,0 +1,124 @@
+/*
+*   Theme Name:HTML5;
+*   Date: Augest 2022;
+*   Discription: Build School Application;
+*   Version: 2.0;
+*   Author: Mhd Alaa Al-Olabi
+*/
+
+body {
+    background-color: #020f4c;
+    overflow: auto;
+}
+
+table {
+    max-width: 98%;
+    width: 75%;
+    min-width: 40%;
+}
+
+th,
+td,
+table {
+    /* border: 2px solid grey; */
+    border-bottom: 2px solid #333;
+    border-collapse: collapse;
+    margin: 0 auto;
+    margin-top: 12px;
+    padding: 25px;
+    text-align: center;
+}
+
+th,
+td {
+    margin: 50%;
+    padding-inline: 1em;
+}
+
+th {
+    background-color: rgb(255, 170, 255);
+    color: #020f4c;
+}
+
+td {
+    color: rgb(255, 170, 255);
+}
+
+input,
+select {
+    border: none;
+    padding: 15px 20px;
+    border-radius: 25px;
+    background: rgb(255, 170, 255, .3);
+    display: table-cell;
+}
+
+form {
+    display: table;
+}
+
+p {
+    display: table-row;
+}
+
+label {
+    display: table-cell;
+    color: rgb(255, 170, 255);
+}
+
+.container input,
+select {
+    width: 100%;
+    clear: both;
+    color: rgb(255, 170, 255);
+    width: 400px;
+}
+
+body form {
+    margin: 20px auto;
+    width: fit-content;
+    text-align: center;
+}
+
+option {
+    color: #020f4c;
+    background-color: rgb(255, 170, 255);
+}
+
+select:focus,
+input:focus {
+    color: rgb(255, 170, 255);
+    background-color: #333;
+}
+
+.container .myBtn {
+    background-color: rgb(255, 170, 255);
+    border-color: rgb(255, 170, 255);
+    color: #020f4c;
+}
+
+.container .myBtn:hover {
+    background-color: #333;
+    border-color: rgb(255, 170, 255);
+    color: rgb(255, 170, 255);
+}
+
+/*------------------------------------------Responsive------------------------------------------*/
+
+@media screen and (max-width:400px) {
+
+    table {
+        max-width: 150%;
+        width: 90%;
+        /* min-width: 40%; */
+    }
+
+    .container input,
+    select {
+        width: 100%;
+    }
+
+    .container p {
+        width: 100%;
+    }
+}

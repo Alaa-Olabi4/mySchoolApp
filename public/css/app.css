@@ -1,0 +1,43 @@
+/* th,
+td, */
+
+table {
+    border: 1px dashed rgb(255, 170, 255);
+    border-radius: 15px;
+    border-collapse: collapse;
+    margin: 0 auto;
+    margin-top: 12px;
+    padding: 25px;
+}
+
+
+/* th,
+td {
+    margin: 50%;
+    padding-inline: 5em;
+} */
+
+th {
+    border: 1px dashed rgb(255, 170, 255);
+    border-radius: 15px;
+    border-collapse: collapse;
+    margin: 0 auto;
+    margin-top: 12px;
+    padding: 25px;
+    margin: 50%;
+    padding-inline: 5em;
+    background-color: rgb(255, 170, 255);
+    color: #020f4c;
+}
+
+td {
+    border: 1px dashed rgb(255, 170, 255);
+    border-radius: 15px;
+    border-collapse: collapse;
+    margin: 0 auto;
+    margin-top: 12px;
+    padding: 25px;
+    margin: 50%;
+    padding-inline: 5em;
+    color: rgb(255, 170, 255);
+}
