@@ -36,8 +36,6 @@ class SubjectController extends Controller
         Subject::create($request->all());
 
         return redirect()->route('subjects.index');
-
-        // return response()->json(['message'=>'Subject added successfully!']);
     }
 
     /**

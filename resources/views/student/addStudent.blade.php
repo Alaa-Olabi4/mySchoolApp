@@ -10,7 +10,7 @@
 @section('body') 
     
     <form action="/api/students" method="POST" class="form">
-        {{-- @csrf --}}
+        @csrf
         <br>
         <div class="container">
         

@@ -28,11 +28,8 @@ Route::get('/login',function(){
 
 Route::resource('subjects','SubjectController');
     
-// Route::group(['middleware' => ['web']], function () {
-    // your routes here
     Route::resource('students','StudentController')->except('store');
     Route::post('/students','StudentController@register')->name('new.student');
-// });
 
 Route::resource('teachers','TeacherController');
     

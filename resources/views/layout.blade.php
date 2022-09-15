@@ -19,7 +19,6 @@
 
 <body style="background-color: #020f4c;">
     @include('navBar')
-    {{-- @includeUnless($boolean, 'view.name', ['some' => 'data']) --}}
 
     @yield('body')
 

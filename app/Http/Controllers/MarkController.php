@@ -36,13 +36,12 @@ class MarkController extends Controller
             );
             $i++;
         }
-        // return $marks;
         return view('mark.marks', ['marks' => $content, 'message' => 'Hi there!']);
     }
 
-    public function indexById($id)
+    public function indexById($student_id)
     {
-        $marks = Mark::where('student_id',$id)->get();
+        $marks = Mark::where('student_id',$student_id)->get();
         $content = [];
         $i = 0;
         foreach ($marks as $m) {
@@ -60,7 +59,6 @@ class MarkController extends Controller
             );
             $i++;
         }
-        // return $marks;
         return view('mark.marksStudent', ['marks' => $content, 'message' => 'Hi there!']);
     }
 
@@ -103,21 +101,8 @@ class MarkController extends Controller
             return response()->json(['message'=>'this mark is entered before!']);
         }
 
-        // $auth = Auth::user();
-        // $user = User::find($auth->id);
-
-        // if($auth && $user->Kind == 'teacher' && Student::find($request->student_id)){
-        //     $teacher = Teacher::where('user_id',$user->id)->first();
-        //     $request->merge([
-        //         'teacher_id'=>$teacher->id ,
-        //         // 'subject_id'=>$teacher->subject_id
-        //     ]);
         Mark::create($request->all());
         return redirect()->route('marks.index');
-        // return response()->json(['message'=>'Mark added successfully'],200);
-        // }else{
-        //     return response()->json(['message'=>'Bad request!']);
-        // }
     }
 
     /**

@@ -1,10 +1,3 @@
-{{-- @extends('layout') --}}
-{{-- @section('head') --}}
-    {{-- <title>Login</title>  --}}
-    {{-- <meta name="csrf-token" content="{{ csrf_token() }}" /> --}}
-    {{-- <link rel="stylesheet" href="css/login.css"> --}}
-    {{-- <link rel="stylesheet" href="{{ secure_asset('css/login.css') }}"> --}}
-{{-- @endsection  --}}
     
 <!DOCTYPE html>
 <html lang="en">
@@ -28,7 +21,6 @@
 </head>
     
 <body style="background-color: #020f4c;">
-{{-- @section('body')  --}}
 
     <div class="login-wrap">
         <div class="login-html">
@@ -42,19 +34,19 @@
                 {{-- Login Form --}}
                 <form action="{{ route('api.login') }}" accept="application/json" method="POST">
                     @csrf
-                    {{-- {{ csrf_field() }} --}}
-                    {{-- {!! csrf_field() !!} --}}
                     <div class="sign-in-htm">
                         {{-- E-mail --}}
                         <div class="group">
                             <label for="user" class="label">E-mail</label>
                             <input id="user" name="email" type="email" class="input" required>
                         </div>
+
                         {{-- Password --}}
                         <div class="group">
                             <label for="pass" class="label">Password</label>
                             <input id="pass" name="password" type="password" class="input" data-type="password" required minlength="8">
                         </div>
+
                         {{-- Keep me Signed in --}}
                         <div class="group">
                             <input id="check" type="checkbox" class="check" {{-- checked --}}>
@@ -63,6 +55,7 @@
                                 <span class="check-text">Keep me Signed in</span>
                             </label>
                         </div>
+
                         {{-- Sign in btn --}}
                         <div class="group">
                             <input type="submit" class="button" value="Sign In">
@@ -87,10 +80,6 @@
                             @endisset
                             
                         </div>
-                        {{-- @if (session()->has('message'))
-                            <div class="alert alert-danger" role="alert"> {{ session()->get('message')  }}</div>                       
-                        @endif --}}
-
                         </form>
 
                 {{-- Register Form --}}
@@ -146,8 +135,6 @@
         </div>
     </div>
     
-    {{-- <script src="{{ asset('/resources/js/login.js') }}"></script> --}}
-{{-- @endsection  --}}
     
 </body>
 </html>

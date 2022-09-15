@@ -10,8 +10,6 @@
 
 @if (session()->has('success'))
     <div class="alert alert-success" style="width: 75%;margin:15px auto;padding:10px;">{{ session()->get('success') }}</div>
-@else
-    {{-- <div class="alert alert-success" style="width: 75%;margin:15px auto;padding:10px;">{{ session()->get('success') }} without session</div> --}}
 @endif
 
 <table>

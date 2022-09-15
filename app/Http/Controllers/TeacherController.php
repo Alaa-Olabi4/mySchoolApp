@@ -38,7 +38,6 @@ class TeacherController extends Controller
             $content[$i] = $t;
             $i++;
         }
-        // return $content;
         return view('teacher.teachers',['teachers'=>$content , 'message'=>'Hi there!']);
     }
 
@@ -74,9 +73,6 @@ class TeacherController extends Controller
             'user_id'=>$content['user_id'],
             'subject_id'=>$request->subject_id
         ]);
-
-        // return response()->json(['token'=>$content['token']]);
-
         return  redirect()->route('teachers.index');
     }
 

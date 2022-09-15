@@ -16,38 +16,11 @@ use App\Http\Controllers\MarkController;
 |
 */
 
-// Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-//     return 'welcome';
-// });
-
-// Route::prefix("subjects")->group(function(){
-
-//     //public routes :
-
-//     Route::get('/' , ['\App\Http\Controllers\SubjectController'::class , 'index']);
-
-//     Route::get('/{id}' , ['\App\Http\Controllers\SubjectController'::class , 'show']);
-
-//     Route::post('/' , ['\App\Http\Controllers\SubjectController'::class , 'store']);
-
-//     //protected routes : 
-
-//     Route::group(['middleware' => ['auth:sanctum']] , function () {
-
-//         Route::put('/{id}' , ['\App\Http\Controllers\SubjectController'::class , 'update']);
-
-//         Route::delete('/{id}' , ['\App\Http\Controllers\SubjectController'::class , 'destroy']);
-
-//     });
-// });
 
 Route::resource('subjects','SubjectController');
 
-// Route::group(['middleware' => ['web']], function () {
-    // your routes here
     Route::resource('students','StudentController')->except('store');
     Route::post('/students' , ['\App\Http\Controllers\StudentController'::class , 'register'])->name('api.students.register');
-// });
 
 
 Route::resource('teachers','TeacherController');
@@ -55,32 +28,6 @@ Route::post('/teachers' , ['\App\Http\Controllers\TeacherController'::class , 'r
     
 Route::resource('marks','MarkController');
 Route::get('marksStudent/{id}' , [MarkController::class , 'indexById'])->name('marks.indexById');
-/*
-Route::prefix("marks")->group(['controller' => MarkController::class],function(){
-
-    //public routes :
-
-    Route::get('/' , 'index');
-
-    //protected routes :
-
-    Route::group(['middleware' => ['auth:sanctum']] , function () {
-
-        Route::post('/' ,'store');
-    
-        Route::get('/{marks:id}' ,'show');
-
-        // Route::get('/student' , ['\App\Http\Controllers\MarkController'::class , 'marksStudent']);
-
-        Route::put('/{marks:id}' ,'update');
-    
-        Route::delete('/{marks:id}' , 'destroy');
-
-    });
-
-});
-
-*/
 
 Route::prefix("service")->group(function(){
 

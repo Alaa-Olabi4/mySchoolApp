@@ -19,7 +19,7 @@ class UserController extends Controller
     {
         return User::get();
     }
-/**
+    /**
      * Store a newly created resource in storage.
      *    
      * @param  \Illuminate\Http\Request  $request
@@ -85,9 +85,7 @@ class UserController extends Controller
 
             $content = ['token'=>$token ,'user_id'=> $user->id];
 
-            // return $content;
-
-           return view('home',['token'=>$token,'message'=>$user->FirstName]);
+            return view('home',['token'=>$token,'message'=>$user->FirstName]);
         }
         else{
             return response()->json(['message'=>'wrong']);
@@ -106,9 +104,6 @@ class UserController extends Controller
             'FirstName' => $user->FirstName,
             'LastName' => $user->LastName,
             'email' => $user->email,
-            // 'email_verified_at' => $user->email_verified_at,
-            // 'created_at' => $user->created_at,
-            // 'updated_at' => $user->updated_at
         ];
         return $content;
     }
@@ -129,7 +124,6 @@ class UserController extends Controller
         $user->save();
 
         return $user;
-        // return response()->json(['message'=>'user updated successfully!']);
     }
 
     /**
@@ -160,42 +154,18 @@ class UserController extends Controller
         ]);
         //check email
         $user = User::where('email' , $request->email)->first();
-        // session(['failure-login'=>'Bad request']);
-        // session()->put('failure-login','Bad request');
+
         //check password
         if(!$user || !Hash::check($request->password , $user->password) ){
 
-            // dd($errors);
-
-            // return response()->json([
-            //     'message' => 'Bad request'
-            // ], 401);
-            
             $message = 'Bad request !';
 
-            // $request->session(['message'=>'Bad request!']);
-            // return back()->withErrors(['error1'=>'Invalid login']);
-            // return back()->with(['message'=>'Bad request!']);
-            // return back()->with($message,'Bad request !');
-            // return view('login',compact('message'));
             return redirect()->route('login')->with('message',$message);
-            // return view('login',['message'=>'Bad request']);
-            // return redirect()->route('login',['message'=>'Bad request!']);
-            // return redirect()->route('login');//->with('failure','Bad request');
         }
 
         $token = $user->createToken('mySchoolApplicationToken')->plainTextToken;
-        // return response()->json([
-        //     'user' => $user,
-        //     'token' => $token
-        // ], 201);
 
-        // dd($user->FirstName);
-
-        return view('home',['token'=>$token,'message'=>$user->FirstName]);
-        // return redirect()->route('home',[],301,['_token'=>$token,'message'=>$user->FirstName]);
-        // return redirect('/home',302,['message'=>$user->FirstName]);
-        // return redirect('/home')->with(['token'=>$token,'message'=>$user->FirstName]);
+        return redirect()->route('home',$token);
     }
 
     /**
@@ -209,17 +179,9 @@ class UserController extends Controller
         if($auth){
             $user = User::find($auth->id);
             $user->tokens()->delete();
-
             return Redirect()->route('login');
-
-            return response()->json([
-                'message' => 'Logged out'
-            ],200);
-            // return redirect('/login');
         }else{
             return response()->json(['message'=>'Bad request']);
         }
-
     }
-
 }

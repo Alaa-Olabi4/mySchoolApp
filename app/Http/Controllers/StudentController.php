@@ -21,8 +21,6 @@ class StudentController extends Controller
 
         $content=[];$i=0;
 
-        // dd(['student'=>$students ,'users'=>$users]);
-
         foreach ($students as $s){
             $su = [
                 'id' => $s->id,
@@ -39,9 +37,6 @@ class StudentController extends Controller
             $content[$i] = $s;
             $i++;
         }
-        // return $content;
-        // session()->flush();
-        // dd(session()->get('success'));
         return view('student\students',['students'=>$content , 'message'=>'Hi there!' , 'success'=>session()->get('success')]);
     }
 
@@ -68,16 +63,6 @@ class StudentController extends Controller
             'Kind'=>'student',
             'password_confirmation' => $request->password
         ]);
-
-
-        // session()->put('success','Student added successfully!');        
-        // session(['success'=>'Student added successfully!']);
-        // $request->session()->flash('success','Student added successfully!');
-        // session()->put('success','Student added successfully!');
-        // dd("Hi there!");
-        // return response()->json(['token'=>$content['token']]);
-        // session()->put('success','Student added successfully!');
-
 
         $content = UserController::store($request);
         Student::create(['user_id'=>$content['user_id']]);
